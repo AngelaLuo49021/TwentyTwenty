@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TwentyTwenty</string>
+    <string name="title_activity_elections">Elections</string>
+    <string name="presidential">Presidential</string>
+    <string name="state">state</string>
+    <string name="school">school</string>
 </resources>
