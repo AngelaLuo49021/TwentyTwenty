@@ -23,27 +23,27 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="319dp"
-        android:layout_height="66dp"
+        android:layout_width="321dp"
+        android:layout_height="43dp"
         android:layout_above="@+id/candidate_description"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="57dp"
-        android:layout_marginRight="57dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginBottom="18dp"
         android:text="Primary Party: Democrat"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/candidate_description"
-        android:layout_width="330dp"
-        android:layout_height="357dp"
+        android:layout_width="336dp"
+        android:layout_height="332dp"
+        android:layout_above="@+id/voter_information"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="47dp"
-        android:layout_marginRight="47dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="26dp"
         android:text="The term recalls the time the former vice president told Republican rival Paul Ryan in a 2012 debate that he was espousing &quot;a bunch of malarkey.&quot; It's one of Biden's favorite phrases, one his campaign hopes will play into voters' perception of Biden as authentic and honest -- drawing contrasts with Trump"
         android:textSize="24sp" />
 
@@ -63,4 +63,17 @@
         android:layout_toLeftOf="@+id/imageView2"
         android:text="Sample Candidate"
         android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/voter_information"
+        android:layout_width="183dp"
+        android:layout_height="62dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="47dp"
+        android:layout_marginRight="47dp"
+        android:layout_marginBottom="26dp"
+        android:text="Voter Information" />
+
 </RelativeLayout>
