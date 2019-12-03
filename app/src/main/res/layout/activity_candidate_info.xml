@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/candidate_party"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CandidateInfo">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="36dp"
+        app:srcCompat="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="321dp"
+        android:layout_height="43dp"
+        android:layout_above="@+id/candidate_description"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="54dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginBottom="18dp"
+        android:text="Primary Party: Democrat"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/candidate_description"
+        android:layout_width="336dp"
+        android:layout_height="332dp"
+        android:layout_above="@+id/voter_information"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="26dp"
+        android:text="The term recalls the time the former vice president told Republican rival Paul Ryan in a 2012 debate that he was espousing &quot;a bunch of malarkey.&quot; It's one of Biden's favorite phrases, one his campaign hopes will play into voters' perception of Biden as authentic and honest -- drawing contrasts with Trump"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/candidate_name"
+        android:layout_width="134dp"
+        android:layout_height="77dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_toStartOf="@+id/imageView2"
+        android:layout_toLeftOf="@+id/imageView2"
+        android:text="Sample Candidate"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/voter_information"
+        android:layout_width="183dp"
+        android:layout_height="62dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="47dp"
+        android:layout_marginRight="47dp"
+        android:layout_marginBottom="26dp"
+        android:text="Voter Information" />
+
+</RelativeLayout>
