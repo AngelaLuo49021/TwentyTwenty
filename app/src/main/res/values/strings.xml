@@ -4,4 +4,6 @@
     <string name="presidential">Presidential</string>
     <string name="state">state</string>
     <string name="school">school</string>
+    <string name="button">Button</string>
+    <string name="candidates">Candidates</string>
 </resources>

@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:textSize="35sp"
-            android:text="@string/state" />
+            android:text="State" />
 
         <Button
             android:id="@+id/button3"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:textSize="35sp"
-            android:text="@string/school" />
+            android:text="School" />
     </LinearLayout>
 </ScrollView>
 
