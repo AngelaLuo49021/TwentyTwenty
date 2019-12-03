@@ -23,7 +23,7 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/presidential"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
@@ -31,19 +31,19 @@
             android:text="@string/presidential" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:textSize="35sp"
-            android:text="@string/state" />
+            android:text="State" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/school"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:textSize="35sp"
-            android:text="@string/school" />
+            android:text="School" />
     </LinearLayout>
 </ScrollView>
