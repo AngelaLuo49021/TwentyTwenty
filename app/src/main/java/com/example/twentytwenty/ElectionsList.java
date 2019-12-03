@@ -20,7 +20,7 @@ public class ElectionsList extends AppCompatActivity {
         Button school = (Button) findViewById(R.id.button3);
         school.setOnClickListener(unused -> onClick());
     }
-
+//
     private void onClick() {
         Intent intent = new Intent(this, CandidateInfo.class);
         startActivity(intent);
