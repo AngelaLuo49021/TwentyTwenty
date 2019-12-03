@@ -15,6 +15,10 @@ public class ElectionsList extends AppCompatActivity {
 
         Button presidential = (Button) findViewById(R.id.button);
         presidential.setOnClickListener(unused -> onClick());
+        Button state = (Button) findViewById(R.id.button2);
+        state.setOnClickListener(unused -> onClick());
+        Button school = (Button) findViewById(R.id.button3);
+        school.setOnClickListener(unused -> onClick());
     }
 
     private void onClick() {
