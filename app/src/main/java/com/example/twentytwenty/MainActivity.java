@@ -51,7 +51,6 @@ private String address, URL, endURL;
                     @Override
                     public void onResponse(JSONObject response) {
                         System.out.println("Response recieved");
-                        System.out.println(response);
 
                         //add the received JSON object as a string to the intent as an extra
                         // in the ElectionList activity, do something like
