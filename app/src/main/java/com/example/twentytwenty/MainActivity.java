@@ -15,7 +15,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
-
+//1690 Carthage Court, Naperville, IL, USA
 public class MainActivity extends AppCompatActivity {
 private String address, URL, endURL;
     @Override
@@ -40,35 +40,38 @@ private String address, URL, endURL;
         //gets the address
         EditText location = findViewById(R.id.location_input);
         address = location.getText().toString();
-
-        //GET request to get all the information
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        JsonObjectRequest objectRequest=new JsonObjectRequest(
-                Request.Method.GET,
-                URL + address + endURL,
-                null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        System.out.println("Response recieved");
-
-                        //add the received JSON object as a string to the intent as an extra
-                        // in the ElectionList activity, do something like
-//                        Intent intent = getIntent();
-//                        jsonFile = intent.getStringExtra("jsonFile");
-                        intent.putExtra("jsonFile", response.toString());
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                }
-        );
-        requestQueue.add(objectRequest);
-
+//
+//        //GET request to get all the information
+//        RequestQueue requestQueue= Volley.newRequestQueue(this);
+//        JsonObjectRequest objectRequest=new JsonObjectRequest(
+//                Request.Method.GET,
+//                URL + address + endURL,
+//                null,
+//                new Response.Listener<JSONObject>() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        //System.out.println("Response recieved");
+//                        //System.out.println(response);
+//
+//                        //add the received JSON object as a string to the intent as an extra
+//                        // in the ElectionList activity, do something like
+////                        Intent intent = getIntent();
+////                        jsonFile = intent.getStringExtra("jsonFile");
+//                        intent.putExtra("jsonFile", response.toString());
+//
+////                        System.out.println(response.toString());
+//
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//
+//                    }
+//                }
+//        );
+//        requestQueue.add(objectRequest);
+        intent.putExtra("address", address);
         startActivity(intent);
     }
 }
