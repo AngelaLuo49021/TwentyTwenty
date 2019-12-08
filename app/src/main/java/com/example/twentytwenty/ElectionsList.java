@@ -76,6 +76,7 @@ public class ElectionsList extends AppCompatActivity {
                 View chunk = getLayoutInflater().inflate(R.layout.chunk, parent, false);
                 Button elections = chunk.findViewById(R.id.electionsChunk);
                 elections.setVisibility(View.VISIBLE);
+                elections.setText(office.toString());
                 elections.setOnClickListener(unused -> onClick());
                 parent.addView(chunk);
 
