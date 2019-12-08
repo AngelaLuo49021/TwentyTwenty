@@ -64,7 +64,7 @@ public class ElectionsList extends AppCompatActivity {
             System.out.println("elections obtained");
             contests = result.getJSONArray("contests");
         } catch (Exception e) {
-            System.out.println("elections NOT obtained");
+            System.out.println("elections NOT obtained");//
             contests = new JSONArray();
         }
 
@@ -76,6 +76,7 @@ public class ElectionsList extends AppCompatActivity {
                 View chunk = getLayoutInflater().inflate(R.layout.chunk, parent, false);
                 Button elections = chunk.findViewById(R.id.electionsChunk);
                 elections.setVisibility(View.VISIBLE);
+                elections.setText(office.toString());
                 elections.setOnClickListener(unused -> onClick());
                 parent.addView(chunk);
 
