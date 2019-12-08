@@ -61,7 +61,7 @@ public class ElectionsList extends AppCompatActivity {
             System.out.println("elections obtained");
             contests = result.getJSONArray("contests");
         } catch (Exception e) {
-            System.out.println("elections NOT obtained");
+            System.out.println("elections NOT obtained");//
             contests = new JSONArray();
         }
 
