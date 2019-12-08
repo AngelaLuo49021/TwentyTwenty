@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -20,6 +21,8 @@ import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.concurrent.BlockingQueue;
 
 public class ElectionsList extends AppCompatActivity {
     private String address;
@@ -70,6 +73,12 @@ public class ElectionsList extends AppCompatActivity {
                 //System.out.println("office obtained");
                 Object office = contests.getJSONObject(i).get("office");
                 System.out.println("office: " + i + " " + office);
+                View chunk = getLayoutInflater().inflate(R.layout.chunk, parent, false);
+                Button elections = chunk.findViewById(R.id.electionsChunk);
+                elections.setVisibility(View.VISIBLE);
+                elections.setOnClickListener(unused -> onClick());
+                parent.addView(chunk);
+
             } catch (Exception e) {
                 System.out.println("office not obtained");
                 contests.remove(i);
