@@ -37,7 +37,6 @@ public class ElectionsList extends AppCompatActivity {
         Intent intent = getIntent();
         address = intent.getStringExtra("address");
 
-
         //GET request to get all the information
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         JsonObjectRequest objectRequest=new JsonObjectRequest(
@@ -53,8 +52,6 @@ public class ElectionsList extends AppCompatActivity {
                 }
         );
         requestQueue.add(objectRequest);
-
-
     }
 
     private void setUpUi(JSONObject result) {
@@ -79,19 +76,16 @@ public class ElectionsList extends AppCompatActivity {
                 elections.setText(office.toString());
                 elections.setOnClickListener(unused -> onClick());
                 parent.addView(chunk);
-
             } catch (Exception e) {
                 System.out.println("office not obtained");
                 contests.remove(i);
                 continue;
             }
         }
-
     }
 //
     private void onClick() {
         Intent intent = new Intent(this, CandidateInfo.class);
         startActivity(intent);
-
     }
 }
