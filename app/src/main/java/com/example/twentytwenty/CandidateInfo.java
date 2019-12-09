@@ -38,11 +38,14 @@ public class CandidateInfo extends AppCompatActivity {
             try {
                 Object nameOfCandidate = candidatesList.getJSONObject(i).get("name");
                 Object partyOfCandidate = candidatesList.getJSONObject(i).get("party");
+                Object websiteOfCandidate = candidatesList.getJSONObject(i).get("candidateUrl");
                 View candidateChunk = getLayoutInflater().inflate(R.layout.candidates, parentList, false);
                 TextView name = candidateChunk.findViewById(R.id.name);
                 name.setText(nameOfCandidate.toString());
                 TextView party = candidateChunk.findViewById(R.id.party);
                 party.setText(partyOfCandidate.toString());
+                TextView webSite = candidateChunk.findViewById(R.id.webSite);
+                webSite.setText(websiteOfCandidate.toString());
                 System.out.println("#" + i + " " + nameOfCandidate + ", Party: " + partyOfCandidate );
                 parentList.addView(candidateChunk);
             } catch (Exception e) {
