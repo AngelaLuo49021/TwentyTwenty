@@ -37,6 +37,7 @@ public class ElectionsList extends AppCompatActivity {
         Intent intent = getIntent();
         address = intent.getStringExtra("address");
 
+
         //GET request to get all the information
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         JsonObjectRequest objectRequest=new JsonObjectRequest(
@@ -52,6 +53,8 @@ public class ElectionsList extends AppCompatActivity {
                 }
         );
         requestQueue.add(objectRequest);
+
+
     }
 
     private void setUpUi(JSONObject result) {
@@ -67,25 +70,35 @@ public class ElectionsList extends AppCompatActivity {
 
         for (int i = 0; i < contests.length(); i++) {
             try {
-                //System.out.println("office obtained");
                 Object office = contests.getJSONObject(i).get("office");
-                System.out.println("office: " + i + " " + office);
+                //System.out.println("office: " + i + " " + office);
                 View chunk = getLayoutInflater().inflate(R.layout.chunk, parent, false);
                 Button elections = chunk.findViewById(R.id.electionsChunk);
                 elections.setVisibility(View.VISIBLE);
                 elections.setText(office.toString());
-                elections.setOnClickListener(unused -> onClick());
+                //String candidates = contests.getJSONObject(i).get("candidates").toString();
+                String contestInfo = contests.getJSONObject(i).toString();
+                //when button is clicked, json with this particular office contest info is sent to the candidate page
+                elections.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(final View v) {
+                        Intent intentCandidate = new Intent(ElectionsList.this, CandidateInfo.class);
+                        try {
+                            intentCandidate.putExtra("contestInfo", contestInfo);
+                        } catch (Exception e) {
+                            intentCandidate.putExtra("contestInfo", "None");
+                        }
+
+                        startActivity(intentCandidate);
+                    }
+                });
                 parent.addView(chunk);
+
             } catch (Exception e) {
                 System.out.println("office not obtained");
                 contests.remove(i);
                 continue;
             }
         }
-    }
-//
-    private void onClick() {
-        Intent intent = new Intent(this, CandidateInfo.class);
-        startActivity(intent);
+
     }
 }
