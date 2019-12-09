@@ -53,6 +53,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:scrollbarSize="4dp"
                     android:text="Website"
+                    android:autoLink="web"
                     android:textColor="#A9043AF5"
                     android:textSize="20sp" />
 
