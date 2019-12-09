@@ -23,11 +23,7 @@ private String address, URL, endURL;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //URL for the get request
-        URL = "https://www.googleapis.com/civicinfo/v2/voterinfo?address=";
-        endURL = "&electionId=2000&key=AIzaSyAja2lrNOgpD8EXwRAcm33Wn_6Fm38GWdE";
 
-        //sets button function
         Button startApp = findViewById(R.id.submit_location);
         startApp.setOnClickListener(unused -> goToElections());
     }
@@ -40,37 +36,6 @@ private String address, URL, endURL;
         //gets the address
         EditText location = findViewById(R.id.location_input);
         address = location.getText().toString();
-//
-//        //GET request to get all the information
-//        RequestQueue requestQueue= Volley.newRequestQueue(this);
-//        JsonObjectRequest objectRequest=new JsonObjectRequest(
-//                Request.Method.GET,
-//                URL + address + endURL,
-//                null,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        //System.out.println("Response recieved");
-//                        //System.out.println(response);
-//
-//                        //add the received JSON object as a string to the intent as an extra
-//                        // in the ElectionList activity, do something like
-////                        Intent intent = getIntent();
-////                        jsonFile = intent.getStringExtra("jsonFile");
-//                        intent.putExtra("jsonFile", response.toString());
-//
-////                        System.out.println(response.toString());
-//
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//
-//                    }
-//                }
-//        );
-//        requestQueue.add(objectRequest);
         intent.putExtra("address", address);
         startActivity(intent);
     }
