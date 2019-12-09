@@ -89,7 +89,6 @@ public class ElectionsList extends AppCompatActivity {
                         }
 
                         startActivity(intentCandidate);
-
                     }
                 });
                 parent.addView(chunk);
