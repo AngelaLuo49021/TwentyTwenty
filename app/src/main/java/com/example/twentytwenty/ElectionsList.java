@@ -28,6 +28,7 @@ public class ElectionsList extends AppCompatActivity {
     private String address;
     private String URL = "https://www.googleapis.com/civicinfo/v2/voterinfo?address=";
     private String endURL = "&electionId=2000&key=AIzaSyAja2lrNOgpD8EXwRAcm33Wn_6Fm38GWdE";
+    private JSONObject result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,10 @@ public class ElectionsList extends AppCompatActivity {
                 Request.Method.GET,
                 URL + address + endURL,
                 null,
-                (Response.Listener<JSONObject>) response -> setUpUi(response),
+                (Response.Listener<JSONObject>) response -> {
+                    result = response;
+                    setUpUi(response);
+                    },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
@@ -54,6 +58,44 @@ public class ElectionsList extends AppCompatActivity {
         );
         requestQueue.add(objectRequest);
 
+        //button to voter info
+        Button voterInfo = findViewById(R.id.voterInfo);
+        voterInfo.setOnClickListener(unused -> voterInfoClicked());
+
+    }
+
+    private void voterInfoClicked() {
+        JSONArray pollingLocations;
+        try {
+            //Retreives the polling location for that address
+            System.out.println("reaches checkpoint 0");
+            pollingLocations = result.getJSONArray("pollingLocations");
+            System.out.println("reaches checkpoint 1");
+            Intent intentVoterInfo = new Intent(ElectionsList.this, VoterInfo.class);
+            JSONObject address = (JSONObject) pollingLocations.getJSONObject(0).get("address");
+            System.out.println("reaches checkpoint 2");
+            String locationName = address.get("locationName").toString();
+            String line1 = address.get("line1").toString();
+            String city = address.get("city").toString();
+            String state = address.get("state").toString();
+
+            //get election date
+            JSONObject election = (JSONObject) result.get("election");
+            String date = election.get("electionDay").toString();
+
+            //put intent extras
+            intentVoterInfo.putExtra("date", date);
+            intentVoterInfo.putExtra("locationName", locationName);
+            intentVoterInfo.putExtra("line1", line1);
+            intentVoterInfo.putExtra("city", city);
+            intentVoterInfo.putExtra("state", state);
+            startActivity(intentVoterInfo);
+
+        } catch (Exception e) {
+            Intent noVoterInfo = new Intent(ElectionsList.this, NoVoterInfo.class);
+            startActivity(noVoterInfo);
+
+        }
 
     }
 
@@ -61,10 +103,8 @@ public class ElectionsList extends AppCompatActivity {
         LinearLayout parent = (LinearLayout) findViewById(R.id.electionsList);
         JSONArray contests;
         try {
-            System.out.println("elections obtained");
             contests = result.getJSONArray("contests");
         } catch (Exception e) {
-            System.out.println("elections NOT obtained");//
             contests = new JSONArray();
         }
 
@@ -94,7 +134,6 @@ public class ElectionsList extends AppCompatActivity {
                 parent.addView(chunk);
 
             } catch (Exception e) {
-                System.out.println("office not obtained");
                 contests.remove(i);
                 continue;
             }

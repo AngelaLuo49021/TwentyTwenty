@@ -20,7 +20,7 @@
         android:layout_marginRight="36dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Hopkins Hall, Champaign, IL, USA" />
+        android:text="1690 Carthage Court, Naperville, IL, USA" />
 
     <Button
         android:id="@+id/submit_location"
