@@ -18,6 +18,7 @@ public class VoterInfo extends AppCompatActivity {
         String line1 = intent.getStringExtra("line1");
         String city = intent.getStringExtra("city");
         String state = intent.getStringExtra("state");
+        String date = intent.getStringExtra("date");
 
         TextView location = findViewById(R.id.locationName);
         location.setText(locationName);
@@ -30,5 +31,8 @@ public class VoterInfo extends AppCompatActivity {
 
         TextView stateView = findViewById(R.id.state);
         stateView.setText(state);
+
+        TextView dateView = findViewById(R.id.date);
+        dateView.setText(date);
     }
 }

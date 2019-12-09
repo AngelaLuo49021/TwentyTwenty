@@ -78,6 +78,13 @@ public class ElectionsList extends AppCompatActivity {
             String line1 = address.get("line1").toString();
             String city = address.get("city").toString();
             String state = address.get("state").toString();
+
+            //get election date
+            JSONObject election = (JSONObject) result.get("election");
+            String date = election.get("electionDay").toString();
+
+            //put intent extras
+            intentVoterInfo.putExtra("date", date);
             intentVoterInfo.putExtra("locationName", locationName);
             intentVoterInfo.putExtra("line1", line1);
             intentVoterInfo.putExtra("city", city);
