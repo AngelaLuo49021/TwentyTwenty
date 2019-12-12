@@ -27,7 +27,7 @@ import java.util.concurrent.BlockingQueue;
 public class ElectionsList extends AppCompatActivity {
     private String address;
     private String URL = "https://www.googleapis.com/civicinfo/v2/voterinfo?address=";
-    private String endURL = "&electionId=2000&key=AIzaSyAja2lrNOgpD8EXwRAcm33Wn_6Fm38GWdE";
+    private String endURL = "&electionId=2000&key=<YOUR KEY HERE>";
     private JSONObject result;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
